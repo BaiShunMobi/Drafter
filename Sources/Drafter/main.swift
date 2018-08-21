@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import PathKit
+//import PathKit
 
 enum DraftMode: String {
     case invokeGraph = "invoke"       // 调用图
@@ -23,6 +23,8 @@ enum DraftOutputType: String {
 
 // 命令行参数解析
 let filePath = StringOption("f", "file", false, "The file or directory to be parsed, supported: .h and .m. Multiple arguments are separated by commas.")
+
+let configFilePath = StringOption("c", "configFile", false, "The configure file of files.")
 
 let version = BoolOption("v", "version", false, "Print Drafter version")
 
@@ -40,7 +42,7 @@ let search = StringOption("s", "search", false, "Specify a keyword, the generate
 let selfOnly = BoolOption("self", "self-method-only", false, "Only contains the methods defined in the user code")
 
 let cli = CommandLine()
-cli.addOptions(filePath, disableAutoOpen, disableCache, output, mode, search, selfOnly, version)
+cli.addOptions(filePath, disableAutoOpen, disableCache, output, mode, search, selfOnly, version, configFilePath)
 
 do {
     try cli.parse()
@@ -56,8 +58,15 @@ if version.value {
 }
 
 // 必须指定文件路径
-guard let paths = filePath.value else {
-    print("Error: File path was missing!\n")
+//guard let paths = filePath.value else {
+//    print("Error: File path was missing!\n")
+//    cli.printUsage()
+//    exit(EX_USAGE)
+//}
+
+// 必须指定配置文件路径
+guard let configFilePath = configFilePath.value else {
+    print("Error: configure file path was missing!\n")
     cli.printUsage()
     exit(EX_USAGE)
 }
@@ -67,7 +76,8 @@ drafter.keywords = search.value?.split(by: ",").map { $0.lowercased() } ?? []
 drafter.outputType = output.value ?? .html
 drafter.mode = mode.value ?? .invokeGraph
 drafter.selfOnly = selfOnly.value
-drafter.paths = paths
+//drafter.paths = paths
+drafter.configFilePath = configFilePath
 drafter.disableAutoOpen = disableAutoOpen.value
 drafter.disableCache = disableCache.value
-drafter.craft()
+//drafter.craft()

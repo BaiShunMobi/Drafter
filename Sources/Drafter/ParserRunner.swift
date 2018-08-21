@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import PathKit
+//import PathKit
 
 fileprivate let maxConcurrent: Int = 4 // 多线程解析最大并发数
 
@@ -30,7 +30,10 @@ class ParserRunner {
             semaphore.wait()
             DispatchQueue.global().async {
                 if let result = FileParser(file).run(usingCache) {
+                    objc_sync_enter(self)
                     results.append(result)
+                    objc_sync_exit(self)
+                    print("Parsed: \(file.lastComponent)")
                 }
                 self.semaphore.signal()
             }
@@ -42,7 +45,10 @@ class ParserRunner {
             semaphore.wait()
             DispatchQueue.global().async {
                 if let result = FileParser(file).run(usingCache) {
+                    objc_sync_enter(self)
                     results.append(result)
+                    objc_sync_exit(self)
+                    print("Parsed: \(file.lastComponent)")
                 }
                 self.semaphore.signal()
             }

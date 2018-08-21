@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftyParse
+//import SwiftyParse
 
 func <?> <T>(_ parser: Parser<T, Tokens>, _ err: String) -> Parser<T, Tokens> {
     return Parser<T, Tokens> { (tokens) -> ParseResult<(T, Tokens)> in

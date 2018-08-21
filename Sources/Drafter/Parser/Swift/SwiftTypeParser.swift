@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftyParse
+//import SwiftyParse
 
 class SwiftTypeParser: ConcreteParserType {
     /// 解析所有的自定义Swift类型

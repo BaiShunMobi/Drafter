@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftyParse
+//import SwiftyParse
 
 class ObjcMethodParser: ConcreteParserType {
     var parser: TokenParser<[MethodNode]> {

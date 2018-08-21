@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftyParse
+//import SwiftyParse
 
 // 解析OC中的Interface定义
 class InterfaceParser: ConcreteParserType {

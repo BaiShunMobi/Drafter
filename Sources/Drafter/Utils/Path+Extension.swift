@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import PathKit
+//import PathKit
 
 extension Path {
     /// 获取该源码文件对应的缓存位置

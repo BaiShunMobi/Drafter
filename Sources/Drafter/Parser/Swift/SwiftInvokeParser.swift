@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftyParse
+//import SwiftyParse
 
 class SwiftInvokeParser: ConcreteParserType {
     

@@ -7,14 +7,14 @@ target 'drafter' do
 
   # Pods for drafter
 
-  pod "SwiftyParse/Core", :git => "https://github.com/L-Zephyr/SwiftyParse.git"
-  pod "PathKit", :git => "https://github.com/kylef/PathKit.git"
+  #pod "SwiftyParse/Core", :git => "https://github.com/L-Zephyr/SwiftyParse.git"
+  #pod "PathKit", :git => "https://github.com/kylef/PathKit.git"
 
   target 'DrafterTests' do
     inherit! :search_paths
     # Pods for testing
-    pod "SwiftyParse/Core", :git => "https://github.com/L-Zephyr/SwiftyParse.git"
-    pod "PathKit", :git => "https://github.com/kylef/PathKit.git"
+    #pod "SwiftyParse/Core", :git => "https://github.com/L-Zephyr/SwiftyParse.git"
+    #pod "PathKit", :git => "https://github.com/kylef/PathKit.git"
   end
 
 end

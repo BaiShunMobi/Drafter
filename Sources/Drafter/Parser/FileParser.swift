@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import PathKit
+//import PathKit
 
 /*
  FileParser并没有继承自ConcreteParserType，它整合了底层所有ConcreteParser并对所有类型的源文件提供一致的接口（Facade模式），
